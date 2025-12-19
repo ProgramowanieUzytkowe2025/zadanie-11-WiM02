@@ -2,7 +2,6 @@ import { AppActionButton } from "./AppActionButton";
 
 export function AppCalculator({ values, setValues, onCalculate }) {
     
-    // A.5: Dynamiczne porównanie (wyzwalane przy każdej zmianie inputów)
     const getComparison = () => {
         if (values.a === '' || values.b === '') return "Wpisz obie liczby";
         const numA = Number(values.a);
@@ -18,7 +17,7 @@ export function AppCalculator({ values, setValues, onCalculate }) {
         let res;
 
         if (op === '/' && numB === 0) {
-            res = "Błąd: dzielenie przez 0"; // A.7
+            res = "Błąd: dzielenie przez 0";
         } else {
             if (op === '+') res = numA + numB;
             if (op === '-') res = numA - numB;
@@ -30,7 +29,6 @@ export function AppCalculator({ values, setValues, onCalculate }) {
         onCalculate(numA, numB, op, res, currentComparison);
     };
 
-    // A.6: Walidacja przycisków
     const isInvalid = values.a === '' || values.b === '';
 
     return (
